@@ -1,0 +1,51 @@
+/* src/components/Header.css */
+
+/* Conteneur principal du header */
+.header {
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Barre de navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem 2rem;
+  gap: 1.5rem; /* ✅ réduit un peu l’espace */
+}
+
+/* Logo */
+.brand {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem; /* ✅ réduit l’espace logo */
+}
+
+.logo-img {
+  height: 40px; /* ajuste le design */
+  width: auto;
+  display: block;
+}
+
+/* Liens du menu */
+.nav a {
+  text-decoration: none;
+  color: #0052cc;
+  font-weight: 500;
+}
+
+/* Lien actif */
+.nav .badge {
+  color: #003d99;
+  border-bottom: 2px solid #003d99;
+  padding-bottom: 0.2rem;
+}
+
+/* Hover */
+.nav a:hover {
+  text-decoration: underline;
+}

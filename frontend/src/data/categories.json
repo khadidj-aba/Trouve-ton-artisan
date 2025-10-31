@@ -1,0 +1,6 @@
+[
+  { "slug": "electricite", "label": "Électricité" },
+  { "slug": "plomberie",  "label": "Plomberie" },
+  { "slug": "menuiserie", "label": "Menuiserie" },
+  { "slug": "boucherie",  "label": "Boucherie" }
+]

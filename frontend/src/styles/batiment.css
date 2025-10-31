@@ -1,0 +1,62 @@
+/* Conteneur principal */
+.bat {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 48px 16px 40px;
+}
+
+/* Titre de page */
+.bat__title {
+  font-size: 48px;
+  line-height: 1.1;
+  font-weight: 800;
+  margin: 0 0 24px;
+  letter-spacing: 0.2px;
+}
+
+/* Barre de recherche */
+.bat__search {
+  margin: 8px 0 28px;
+}
+
+/* Sous-titre */
+.bat__subtitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 8px 0 18px;
+}
+
+.bat__subtitle span {
+  font-weight: 800;
+}
+
+/* Grille des cartes (même logique que services.css) */
+.bat__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Message “aucun résultat” */
+.bat__empty {
+  font-size: 18px;
+  color: #666;
+  grid-column: 1 / -1;
+  margin: 24px 0;
+}
+
+/* Responsif */
+@media (max-width: 1000px) {
+  .bat__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .bat__title {
+    font-size: 36px;
+  }
+  .bat__grid {
+    grid-template-columns: 1fr;
+  }
+}

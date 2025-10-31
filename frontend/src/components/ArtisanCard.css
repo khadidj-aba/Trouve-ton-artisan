@@ -1,0 +1,5 @@
+.artisan-card { display:flex; gap:12px; padding:14px; border:1px solid #eee; border-radius:12px; background:#fff; }
+.artisan-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.06); }
+.artisan-card .avatar { width:56px; height:56px; border-radius:12px; background:linear-gradient(135deg,#ffd27d,#ff9f68); }
+.artisan-card .meta .cat { color:#666; font-size:14px; }
+.artisan-card .rating { margin-top:4px; }

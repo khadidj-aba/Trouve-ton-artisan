@@ -1,0 +1,7 @@
+[
+  { "id": 1, "nom": "Mont Blanc Électricité", "categorie": "electricite", "ville": "Lyon", "note": 4.5 },
+  { "id": 2, "nom": "Boucherie Dumont", "categorie": "boucherie", "ville": "Lyon", "note": 4.8 },
+  { "id": 3, "nom": "Couture Lecuyer", "categorie": "couture", "ville": "Annecy", "note": 4.6 },
+  { "id": 4, "nom": "AquaPlomb", "categorie": "plomberie", "ville": "Grenoble", "note": 4.2 },
+  { "id": 5, "nom": "Menuisier des Alpes", "categorie": "menuiserie", "ville": "Chambéry", "note": 4.7 }
+]

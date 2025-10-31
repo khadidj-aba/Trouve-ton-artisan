@@ -1,0 +1,136 @@
+/* src/styles/home.css */
+:root{
+  --container: 1100px;
+  --radius: 16px;
+  --bg-soft: #f6f8fb;
+  --text: #0b1220;
+  --muted: #5b6474;
+  --primary: #0b5bd3;
+  --ring: rgba(11,91,211,.2);
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* HERO */
+.hero h1{
+  margin: 28px 0 14px;
+  font-size: clamp(28px, 3.6vw, 56px);
+  line-height: 1.1;
+  font-weight: 700;        /* was 800 → utilise la graisse dispo (Graphik-Bold.otf) */
+  letter-spacing: .2px;
+  color: var(--text);
+  text-wrap: balance;
+}
+
+/* ETAPES */
+.etapes{ margin: 10px 0 24px; }
+.etapes__grid{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 18px;
+}
+.step{
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 1px solid #e7ebf3;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 0 #eef1f7 inset, 0 1px 0 rgba(10,18,30,.03);
+  padding: 14px 16px;
+}
+.step__num{
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  font-weight: 700;
+}
+.step__title{
+  font-weight: 600;
+}
+
+/* CATEGORIES */
+.categories{ margin: 6px 0 8px; }
+.categories h2 { font-size: 28px; margin: 18px 0 10px; }
+.cat__links{ display:flex; gap:18px; flex-wrap:wrap; }
+.cat__links a{
+  color: #0e56c9;
+  font-weight: 600;
+  text-decoration: none;
+}
+.cat__links a:hover{ text-decoration: underline; }
+
+/* ARTISANS */
+.artisans h2{ font-size: 28px; margin: 18px 0; }
+
+.grid-3{
+  display:grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+}
+
+.artisan{
+  background: var(--bg-soft);
+  border: 1px solid #e7ebf3;
+  border-radius: var(--radius);
+  padding: 22px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.artisan__icons{ font-size: 22px; letter-spacing: 6px; }
+.artisan__title{ font-size: 22px; margin: 2px 0; }
+.artisan__meta{ color: var(--muted); margin: 0; }
+.artisan__meta span{ color: inherit; }
+
+.artisan__rate{
+  display:flex; align-items:center; gap:10px;
+  margin: 2px 0 10px;
+}
+.stars{
+  background: linear-gradient(90deg,#ffb300 80%, #ccd3df 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+.note{ color: var(--text); font-weight: 600; }
+
+/* Bouton local à la carte (évite conflit avec .btn global de base.css) */
+.artisan .btn{
+  align-self:flex-start;
+  background: var(--primary);
+  color:#fff; text-decoration:none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 700;
+  border: 1px solid #0a53c0;
+  box-shadow: 0 0 0 0 var(--ring);
+  transition: box-shadow .15s ease, transform .06s ease;
+}
+.artisan .btn:hover{ transform: translateY(-1px); box-shadow: 0 0 0 6px var(--ring); }
+
+@media (max-width: 980px){
+  .etapes__grid{ grid-template-columns: repeat(2,1fr); }
+  .grid-3{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px){
+  .grid-3{ grid-template-columns: 1fr; }
+}
+
+.footer{
+  display:flex; justify-content:space-between; gap:22px;
+  padding: 28px 0 60px;
+}
+.footer__brand address{ margin-top:6px; color: var(--muted); font-style: normal; }
+.footer__links{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+.footer__links a{ color:#0e56c9; text-decoration:none; }
+.footer__links a:hover{ text-decoration:underline; }
+.sep{ color:#c8cfdb; }
