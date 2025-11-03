@@ -19,7 +19,7 @@ export default function Contact() {
     setError("");
 
     try {
-      // appel API backend -> messages
+      // appel API backend 
       const res = await fetch("http://localhost:4000/api/messages", {
         method: "POST",
         headers: {
