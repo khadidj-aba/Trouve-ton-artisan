@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import ServiceMiniCard from "../components/ServiceMiniCard";
 import SearchBar from "../components/SearchBar";
 import "../styles/services.css"; //  le style commun
-
+import { Helmet } from "react-helmet-async";
 
 const RAW_FOOD = [
   { id: 1, name: "Boulanger Thiery",      city: "Clermont-Ferrand", trade: "boulanger",     rating: 4.8, emoji: "🥖" },
@@ -32,6 +32,14 @@ export default function Alimentation() {
   }, [q]);
 
   return (
+    <>
+    <Helmet>
+        <title>Trouve ton artisan — Bâtiment</title>
+        <meta
+          name="description"
+          content="Trouvez des artisans du bâtiment en Auvergne-Rhône-Alpes : maçons, électriciens, peintres, menuisiers et plombiers qualifiés."
+        />
+      </Helmet>
     <div className="srv">
       <h1 className="srv__title">Alimentation</h1>
 
@@ -52,5 +60,6 @@ export default function Alimentation() {
         ))}
       </div>
     </div>
+    </>
   );
 }

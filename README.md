@@ -60,8 +60,28 @@ Ce projet m’a permis de :
 
 ```bash
 git clone https://github.com/khadidj-aba/trouve-ton-artisan.git
-cd trouve-ton-artisan
+ cd trouve-ton-artisan
 
+ ### 2️⃣ Installer les dépendances
+Dans chaque dossier (`backend` et `frontend`) :
+
+```bash
+cd backend
+npm install
+cd ../frontend
+npm install
+
+3️⃣ Lancer le projet
+Dans deux terminaux différents :
+
+Backend (port 4000) :
+cd backend
+npm run dev
+
+Frontend (port 3000) :
+cd frontend
+npm start
+Le site sera accessible sur http://localhost:3000
 
 ## 🗂 Arborescence du projet
 
@@ -114,3 +134,26 @@ La base de données **MySQL** permet de stocker les artisans et les messages du 
 Les scripts SQL sont fournis dans le dossier `/database` :
 - `create_database.sql` : création des tables
 - `seed.sql` : insertion d’exemples d’artisans
+
+## 🌿 SEO & Accessibilité
+
+- Utilisation de **react-helmet-async** pour définir les balises `<title>` et `<meta description>` sur chaque page.
+- Structure sémantique avec titres hiérarchisés (`<h1>`, `<h2>`, etc.).
+- Textes alternatifs (`alt`) sur les images et contraste respecté.
+- Navigation clavier testée sur les formulaires et boutons.
+- Favicon et meta viewport configurés pour les appareils mobiles.
+
+## ⚙️ Fonctionnalités principales
+
+- 🔍 Recherche et filtrage des artisans par métier ou ville  
+- 📄 Fiche artisan détaillée avec description et note  
+- 📨 Formulaire de contact connecté à la base de données  
+- 🧱 Catégorisation par secteur (Bâtiment, Fabrication, Alimentation…)  
+- 🖼️ Interface responsive et accessible sur mobile / tablette  
+- 🌐 SEO optimisé grâce à react-helmet-async  
+
+
+## 🎓 Conclusion
+
+Ce projet m’a permis de mettre en pratique mes compétences en **HTML, CSS, React, Node.js et MySQL**, tout en respectant les exigences d’**accessibilité**, de **responsive design** et de **SEO**.  
+Il représente une étape clé dans ma formation vers le métier de **Développeuse Web Full Stack**.

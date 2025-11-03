@@ -4,6 +4,7 @@ import SearchBar from "../components/SearchBar";
 import LoadingOverlay from "../components/LoadingOverlay";
 import "../styles/base.css";
 import "../styles/services.css";
+import { Helmet } from "react-helmet-async";
 
 const RAW = [
   { id: 1, name: "Mont Blanc Électricité", city: "Lyon", trade: "électricien", rating: 4.5, emoji: "👷‍♂️" },
@@ -46,31 +47,41 @@ export default function Services() {
   }, [q]);
 
   return (
-    <div className="srv">
-      <LoadingOverlay visible={loading} />
+    <>
+      <Helmet>
+        <title>Trouve ton artisan — Services</title>
+        <meta
+          name="description"
+          content="Découvrez nos services d’artisans en Auvergne-Rhône-Alpes : plombier, électricien, menuisier, peintre, garagiste et plus encore."
+        />
+      </Helmet>
 
-      <h1 className="srv__title">Services</h1>
+      <div className="srv">
+        <LoadingOverlay visible={loading} />
 
-      <SearchBar
-        placeholder="Recherche des artisans"
-        value={term}
-        onChange={setTerm}
-        className="srv__search"
-      />
+        <h1 className="srv__title">Services</h1>
 
-      <h2 className="srv__subtitle">
-        Les artisans du <span>services</span>
-      </h2>
+        <SearchBar
+          placeholder="Recherche des artisans"
+          value={term}
+          onChange={setTerm}
+          className="srv__search"
+        />
 
-      <div className="srv__grid">
-        {data.length === 0 ? (
-          <p style={{ textAlign: "center", width: "100%", marginTop: 24 }}>
-            Aucun artisan trouvé.
-          </p>
-        ) : (
-          data.map((a) => <ServiceMiniCard key={a.id} {...a} />)
-        )}
+        <h2 className="srv__subtitle">
+          Les artisans du <span>services</span>
+        </h2>
+
+        <div className="srv__grid">
+          {data.length === 0 ? (
+            <p style={{ textAlign: "center", width: "100%", marginTop: 24 }}>
+              Aucun artisan trouvé.
+            </p>
+          ) : (
+            data.map((a) => <ServiceMiniCard key={a.id} {...a} />)
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

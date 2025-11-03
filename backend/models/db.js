@@ -1,16 +1,24 @@
-import mysql from "mysql2/promise";
+// backend/models/db.js (ESM)
+import mysql from "mysql2";
 import dotenv from "dotenv";
-
 dotenv.config();
 
-const db = await mysql.createPool({
+const db = mysql.createConnection({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
-  password: process.env.DB_PASS,
+  // 👇 ICI : on lit DB_PASSWORD au lieu de DB_PASS
+  password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
   port: process.env.DB_PORT || 3306,
-  waitForConnections: true,
-  connectionLimit: 10
+  multipleStatements: false,
+});
+
+db.connect((err) => {
+  if (err) {
+    console.error("❌ Erreur de connexion MySQL :", err);
+  } else {
+    console.log("✅ Connecté à la base MySQL :", process.env.DB_NAME);
+  }
 });
 
 export default db;

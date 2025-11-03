@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./../styles/home.css";
+import { Helmet } from "react-helmet-async";
+
 
 // Composant pour les étapes (explication du process)
 const Step = ({ n, title }) => (
@@ -16,9 +18,7 @@ const Step = ({ n, title }) => (
 const ArtisanCard = ({ id, name, city, metier, note }) => {
   // sécurité si note est undefined/null
   const formattedNote =
-    typeof note === "number"
-      ? note.toFixed(1).replace(".", ",")
-      : "4,5";
+    typeof note === "number" ? note.toFixed(1).replace(".", ",") : "4,5";
 
   return (
     <article className="artisan-card" aria-labelledby={`artisan-${id}-title`}>
@@ -32,10 +32,7 @@ const ArtisanCard = ({ id, name, city, metier, note }) => {
       </div>
 
       <header>
-        <h3
-          className="artisan-card__title"
-          id={`artisan-${id}-title`}
-        >
+        <h3 className="artisan-card__title" id={`artisan-${id}-title`}>
           {name}
         </h3>
 
@@ -87,6 +84,15 @@ export default function Home() {
 
   return (
     <div className="home">
+      {/* ✅ Balises meta SEO */}
+      <Helmet>
+        <title>Trouve ton artisan - Accueil</title>
+        <meta
+          name="description"
+          content="Trouvez un artisan de confiance en Auvergne-Rhône-Alpes. Plombier, électricien, maçon, peintre… Des pros près de chez vous."
+        />
+      </Helmet>
+
       {/* HERO */}
       <header className="hero container" role="banner">
         <h1 className="hero__title">

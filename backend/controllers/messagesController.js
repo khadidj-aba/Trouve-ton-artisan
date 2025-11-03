@@ -1,36 +1,24 @@
-import { createMessage, getMessages } from "../models/Message.js";
+// backend/controllers/messagesController.js
+import db from "../models/db.js";
 
-export async function listMessages(req, res) {
-  try {
-    const messages = await getMessages();
-    res.json(messages);
-  } catch (err) {
-    console.error("listMessages error:", err);
-    res.status(500).json({ error: "Erreur serveur (messages)" });
-  }
-}
+export const createMessage = (req, res) => {
+  const { artisan_id, nom, email, contenu } = req.body;
 
-export async function addMessage(req, res) {
-  try {
-    const { nom, email, sujet, contenu, artisan_id } = req.body;
+  const sql = `
+    INSERT INTO messages (artisan_id, nom, email, contenu)
+    VALUES (?, ?, ?, ?)
+  `;
 
-    if (!nom || !email || !contenu) {
-      return res
-        .status(400)
-        .json({ error: "Champs obligatoires manquants (nom, email, contenu)" });
+  db.query(sql, [artisan_id, nom, email, contenu], (err, result) => {
+    if (err) {
+      console.error("Erreur SQL (POST /api/messages):", err);
+      return res.status(500).json({ error: "Erreur serveur" });
     }
 
-    const newMessage = await createMessage({
-      nom,
-      email,
-      sujet,
-      contenu,
-      artisan_id,
+    res.json({
+      success: true,
+      message: "Message enregistré avec succès ✅",
+      id_message: result.insertId,
     });
-
-    res.status(201).json(newMessage);
-  } catch (err) {
-    console.error("addMessage error:", err);
-    res.status(500).json({ error: "Erreur serveur (création message)" });
-  }
-}
+  });
+};

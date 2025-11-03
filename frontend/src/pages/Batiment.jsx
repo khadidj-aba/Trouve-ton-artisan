@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import ServiceMiniCard from "../components/ServiceMiniCard";
 import SearchBar from "../components/SearchBar";
 import "../styles/services.css"; 
+import { Helmet } from "react-helmet-async"; // ✅ import ajouté
 
 // Données BÂTIMENT (électricien, maçon, menuisier, peintre, rénovation, plombier…)
 const RAW_BTP = [
@@ -31,25 +32,35 @@ export default function Batiment() {
   }, [q]);
 
   return (
-    <div className="srv">
-      <h1 className="srv__title">Bâtiment</h1>
+    <>
+      <Helmet>
+        <title>Trouve ton artisan — Bâtiment</title>
+        <meta
+          name="description"
+          content="Trouvez des artisans du bâtiment en Auvergne-Rhône-Alpes : maçons, électriciens, peintres, menuisiers et plombiers qualifiés."
+        />
+      </Helmet>
 
-      <SearchBar
-        placeholder="Recherche des artisans"
-        value={q}
-        onChange={setQ}
-        className="srv__search"
-      />
+      <div className="srv">
+        <h1 className="srv__title">Bâtiment</h1>
 
-      <h2 className="srv__subtitle">
-        Les artisans du <span>bâtiment</span>
-      </h2>
+        <SearchBar
+          placeholder="Recherche des artisans"
+          value={q}
+          onChange={setQ}
+          className="srv__search"
+        />
 
-      <div className="srv__grid">
-        {data.map((a) => (
-          <ServiceMiniCard key={a.id} {...a} />
-        ))}
+        <h2 className="srv__subtitle">
+          Les artisans du <span>bâtiment</span>
+        </h2>
+
+        <div className="srv__grid">
+          {data.map((a) => (
+            <ServiceMiniCard key={a.id} {...a} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

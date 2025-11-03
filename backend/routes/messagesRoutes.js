@@ -1,9 +1,10 @@
+// backend/routes/messagesRoutes.js
 import { Router } from "express";
-import { listMessages, addMessage } from "../controllers/messagesController.js";
+import validateFields from "../middleware/validateFields.js";
+import { createMessage } from "../controllers/messagesController.js";
 
 const router = Router();
 
-router.get("/", listMessages);  // GET /api/messages
-router.post("/", addMessage);   // POST /api/messages
+router.post("/", validateFields, createMessage);
 
 export default router;
